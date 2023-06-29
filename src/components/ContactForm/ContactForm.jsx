@@ -17,8 +17,6 @@ const ContactForm = () => {
 
     if (contacts.find(existingContact => existingContact.name === name.value)) {
       Notiflix.Notify.failure(`${contact.name} is already in your contacts`);
-
-      console.log('ffff');
     } else {
       dispatch(addContact(contact));
     }
