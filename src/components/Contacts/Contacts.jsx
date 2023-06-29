@@ -12,10 +12,11 @@ import { selectContacts, selectVisibleContacts } from 'redux/selectors';
 import { deleteContact } from 'redux/operation';
 import { sortByAdded, sortByName } from 'redux/contactsSlice';
 import { RiDeleteBin2Line } from 'react-icons/ri';
+import { TbSortAscendingLetters, TbSortAscending2 } from 'react-icons/tb';
 
 const Contacts = () => {
-	const visibleContacts = useSelector(selectVisibleContacts);
-	const contacts = useSelector(selectContacts)
+  const visibleContacts = useSelector(selectVisibleContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   return (
@@ -23,19 +24,19 @@ const Contacts = () => {
       <Title>Contacts</Title>
 
       {contacts.length > 0 ? (
-			  <ContactsList>
-				  <BtnWrapper>
-          <SortBtn onClick={() => dispatch(sortByName())}>Sort by name</SortBtn>
-          <SortBtn onClick={() => dispatch(sortByAdded())}>Recently added</SortBtn>
-					  
-				  </BtnWrapper>
+        <ContactsList>
+          <BtnWrapper>
+            <SortBtn onClick={() => dispatch(sortByName())}>
+              Sort by name <TbSortAscendingLetters size="20" />
+            </SortBtn>
+            <SortBtn onClick={() => dispatch(sortByAdded())}>
+              Recently added <TbSortAscending2 size="20" />
+            </SortBtn>
+          </BtnWrapper>
 
           {visibleContacts.map(({ name, phone, id }) => (
             <ListItem key={id}>
-              <p>
-                <span>{name}: </span>
-                <span>{phone} </span>
-              </p>
+              {name}: {phone}
               <DeleteBtn
                 type="button"
                 onClick={() => dispatch(deleteContact(id))}

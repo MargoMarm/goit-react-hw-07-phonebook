@@ -9,10 +9,10 @@ export const Label = styled.label`
 
 export const FilterInput = styled.input`
   display: block;
-  width: 100%;
+  min-width: 400px;
   margin-bottom: 10px;
   margin-top: 10px;
-  padding: 15px;
+  padding: 15px 25px;
 
   border: 0;
   outline: 0;
@@ -20,6 +20,6 @@ export const FilterInput = styled.input`
   color: black;
   background-color: white;
 
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 7px 14px 0px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 `;

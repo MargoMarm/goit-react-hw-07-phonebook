@@ -4,12 +4,12 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  padding: 20px 30px;
+  min-width: 400px;
+  padding: 25px;
   padding-bottom: 25px;
   border-radius: 5px;
   margin-bottom: 35px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 7px 14px 0px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   background-color: white;
 `;

@@ -5,15 +5,15 @@ export const Title = styled.h2`
   font-weight: 600;
   text-transform: uppercase;
   margin-top: 0;
-  margin-bottom:10px
-
+  margin-bottom: 10px;
 `;
 
 export const ContactsList = styled.ul`
   list-style: none;
+  min-width: 400px;
   margin: 0;
   margin-bottom: 35px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 7px 14px 0px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   padding: 25px;
   background-color: white;
@@ -24,6 +24,9 @@ export const ListItem = styled.li`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 5px groove #73dbeb;
+  padding: 10px 0;
+
 `;
 
 export const DeleteBtn = styled.button`
@@ -73,7 +76,7 @@ export const DeleteBtn = styled.button`
 `;
 
 export const SortBtn = styled.button`
-  width: 125px;
+  width: 155px;
   height: 30px;
   margin: ;
   color: rgb(255, 255, 255);
@@ -83,7 +86,9 @@ export const SortBtn = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   outline: none;
   position: relative;
   background: #0fc1dd;
