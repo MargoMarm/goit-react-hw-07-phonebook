@@ -37,8 +37,8 @@ export const contactsSlice = createSlice({
       );
       state.recentlyAdded = !state.recentlyAdded;
     },
-	},
-  
+  },
+
   extraReducers: {
     [fetchContacts.pending]: handlePending,
     [addContact.pending]: handlePending,
@@ -55,23 +55,12 @@ export const contactsSlice = createSlice({
     },
 
     [addContact.fulfilled](state, action) {
-      if (
-        state.contacts.find(
-          existingContact => existingContact.name === action.payload.name
-        )
-      ) {
-        Notiflix.Notify.failure(
-          `${action.payload.name} is already in your contacts`
-        );
-        return;
-      } else {
-        state.contacts.unshift(action.payload);
-        state.isLoading = false;
-        state.error = null;
-        Notiflix.Notify.success(
-          `${action.payload.name} has been successfully added to  your phonebook`
-        );
-      }
+      state.contacts.unshift(action.payload);
+      state.isLoading = false;
+      state.error = null;
+      Notiflix.Notify.success(
+        `${action.payload.name} has been successfully added to  your phonebook`
+      );
     },
 
     [deleteContact.fulfilled](state, action) {
