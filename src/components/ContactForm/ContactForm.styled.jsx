@@ -38,7 +38,9 @@ export const Input = styled.input`
 `;
 
 export const AddButton = styled.button`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 30px;
   cursor: pointer;
@@ -48,9 +50,7 @@ export const AddButton = styled.button`
   font-family: Lato, sans-serif;
   font-weight: 500;
   font-size: 16px;
-  cursor: pointer;
   transition: all 0.3s ease 0s;
-  display: inline-block;
   box-shadow: rgba(255, 255, 255, 0.5) 2px 2px 2px 0px inset,
     rgba(0, 0, 0, 0.1) 7px 7px 20px 0px, rgba(0, 0, 0, 0.1) 4px 4px 5px 0px;
   outline: none;
@@ -80,5 +80,9 @@ export const AddButton = styled.button`
   &:hover:after {
     left: 0;
     width: 100%;
+  }
+  > span {
+    margin-right: 10px;
+    font-size: 18px;
   }
 `;

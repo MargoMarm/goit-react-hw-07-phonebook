@@ -76,19 +76,19 @@ export const DeleteBtn = styled.button`
 `;
 
 export const SortBtn = styled.button`
-  width: 155px;
+  min-width: 180px;
   height: 30px;
   margin: ;
   color: rgb(255, 255, 255);
   border-radius: 5px;
   font-family: Lato, sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   outline: none;
   position: relative;
   background: #0fc1dd;

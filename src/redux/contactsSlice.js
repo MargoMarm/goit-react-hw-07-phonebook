@@ -17,19 +17,28 @@ export const contactsSlice = createSlice({
     contacts: [],
     error: null,
     isLoading: false,
+    sortedAlphabetic: true,
+    recentlyAdded: true,
   },
   reducers: {
     sortByName(state) {
       state.contacts = state.contacts.sort((firstContact, secondContact) =>
-        firstContact.name.localeCompare(secondContact.name)
+        state.sortedAlphabetic
+          ? firstContact.name.localeCompare(secondContact.name)
+          : secondContact.name.localeCompare(firstContact.name)
       );
+      state.sortedAlphabetic = !state.sortedAlphabetic;
     },
     sortByAdded(state) {
-      state.contacts = state.contacts.sort(
-        (firstContact, secondContact) => secondContact.id - firstContact.id
+      state.contacts = state.contacts.sort((firstContact, secondContact) =>
+        state.recentlyAdded
+          ? secondContact.id - firstContact.id
+          : firstContact.id - secondContact.id
       );
+      state.recentlyAdded = !state.recentlyAdded;
     },
-  },
+	},
+  
   extraReducers: {
     [fetchContacts.pending]: handlePending,
     [addContact.pending]: handlePending,

@@ -1,6 +1,8 @@
 import { Input, AddButton, Form, Title } from './ContactForm.styled';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/operation';
+import { RiContactsLine } from 'react-icons/ri';
+
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -33,7 +35,9 @@ const ContactForm = () => {
           required
           placeholder="Number"
         />
-        <AddButton type="submit">Add contacts</AddButton>
+        <AddButton type="submit">
+          <span>Add contacts </span> <RiContactsLine size="20" />
+        </AddButton>
       </Form>
     </>
   );
