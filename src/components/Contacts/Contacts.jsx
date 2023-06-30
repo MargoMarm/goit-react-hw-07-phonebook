@@ -14,9 +14,15 @@ import {
   selectSortedAlphabetic,
   selectVisibleContacts,
   selectRecentlyAdded,
+  selectFavourites,
+  selectFavIsShown,
 } from 'redux/selectors';
 import { deleteContact, toggleIsFavourite } from 'redux/operation';
-import { sortByAdded, sortByName } from 'redux/contactsSlice';
+import {
+  sortByAdded,
+  sortByName,
+  toggleShowFavourites,
+} from 'redux/contactsSlice';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import {
   TbSortAscendingLetters,
@@ -27,11 +33,16 @@ import {
 import { PiHeartFill, PiHeartBold } from 'react-icons/pi';
 
 const Contacts = () => {
-  const visibleContacts = useSelector(selectVisibleContacts);
+  let visibleContacts = useSelector(selectVisibleContacts);
   const contacts = useSelector(selectContacts);
+  const favContacts = useSelector(selectFavourites);
+  const favIsShown = useSelector(selectFavIsShown);
   const sortedAlphabetic = useSelector(selectSortedAlphabetic);
   const recentlyAdded = useSelector(selectRecentlyAdded);
   const dispatch = useDispatch();
+  const contactsToShow = favIsShown ? favContacts : visibleContacts;
+  const textToShow = !favIsShown ? 'Show my favourites' : 'Show all';
+
   return (
     <>
       <Title>Contacts</Title>
@@ -53,10 +64,13 @@ const Contacts = () => {
               <TbSortDescending2 size="20" />
             )}
           </SortBtn>
+          <SortBtn onClick={() => dispatch(toggleShowFavourites())}>
+            {textToShow}
+          </SortBtn>
         </BtnWrapper>
         {contacts.length > 0 ? (
           <ContactsList>
-            {visibleContacts.map(({ name, phone, id, isFavourite }) => {
+            {contactsToShow.map(({ name, phone, id, isFavourite }) => {
               return (
                 <ListItem key={id}>
                   {name}: {phone}
@@ -74,9 +88,9 @@ const Contacts = () => {
                       }
                     >
                       {isFavourite ? (
-                        <PiHeartBold size="20" />
-                      ) : (
                         <PiHeartFill size="20" />
+                      ) : (
+                        <PiHeartBold size="20" />
                       )}
                     </DeleteBtn>
                   </BtnWrapper>

@@ -24,6 +24,7 @@ export const contactsSlice = createSlice({
     isLoading: false,
     sortedAlphabetic: true,
     recentlyAdded: true,
+    favIsShown: false,
   },
   reducers: {
     sortByName(state) {
@@ -41,6 +42,9 @@ export const contactsSlice = createSlice({
           : firstContact.id - secondContact.id
       );
       state.recentlyAdded = !state.recentlyAdded;
+    },
+    toggleShowFavourites(state) {
+      state.favIsShown = !state.favIsShown;
     },
   },
 
@@ -91,4 +95,5 @@ export const contactsSlice = createSlice({
 });
 
 export default contactsSlice.reducer;
-export const { sortByName, sortByAdded } = contactsSlice.actions;
+export const { sortByName, sortByAdded, toggleShowFavourites } =
+  contactsSlice.actions;

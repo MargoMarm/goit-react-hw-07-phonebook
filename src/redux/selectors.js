@@ -8,6 +8,8 @@ export const selectError = state => state.contacts.error;
 
 export const selectIsLoading = state => state.contacts.isLoading;
 
+export const selectFavIsShown = state => state.contacts.favIsShown;
+
 export const selectSortedAlphabetic = state => state.contacts.sortedAlphabetic;
 
 export const selectRecentlyAdded = state => state.contacts.recentlyAdded;
@@ -21,3 +23,8 @@ export const selectVisibleContacts = createSelector(
     return filtredContacts;
   }
 );
+
+export const selectFavourites = createSelector([selectContacts], contacts => {
+	const favContacts = contacts.filter(contact => contact.isFavourite);
+	return favContacts;
+})
