@@ -85,7 +85,7 @@ export const contactsSlice = createSlice({
         contact => contact.id === action.payload.id
       );
 
-      state.contacts[index].IsFavourite = !state.contacts[index].IsFavourite;
+      state.contacts[index] = action.payload;
     },
   },
 });
