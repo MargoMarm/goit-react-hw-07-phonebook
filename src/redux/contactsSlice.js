@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
-import { addContact, deleteContact, fetchContacts } from './operation';
+import {
+  addContact,
+  deleteContact,
+  fetchContacts,
+  toggleIsFavourite,
+} from './operation';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -43,10 +48,12 @@ export const contactsSlice = createSlice({
     [fetchContacts.pending]: handlePending,
     [addContact.pending]: handlePending,
     [deleteContact.pending]: handlePending,
+    [toggleIsFavourite]: handlePending,
 
     [fetchContacts.rejected]: handleRejected,
     [addContact.rejected]: handleRejected,
     [deleteContact.rejected]: handleRejected,
+    [toggleIsFavourite]: handleRejected,
 
     [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
@@ -69,6 +76,16 @@ export const contactsSlice = createSlice({
       state.contacts = state.contacts.filter(
         contact => contact.id !== action.payload.id
       );
+    },
+    [toggleIsFavourite.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      console.log(action.payload.id);
+      const index = state.contacts.findIndex(
+        contact => contact.id === action.payload.id
+      );
+
+      // state.contacts[index].IsFavourite = !state.contacts[index].IsFavourite;
     },
   },
 });

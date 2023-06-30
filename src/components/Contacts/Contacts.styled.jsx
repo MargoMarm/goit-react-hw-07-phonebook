@@ -7,16 +7,20 @@ export const Title = styled.h2`
   margin-top: 0;
   margin-bottom: 10px;
 `;
-
-export const ContactsList = styled.ul`
-  list-style: none;
+export const ContactsWrapper = styled.div`
   min-width: 400px;
-  margin: 0;
   margin-bottom: 35px;
   box-shadow: 1px 7px 14px 0px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   padding: 25px;
+  margin-top: 12px;
   background-color: white;
+`;
+export const ContactsList = styled.ul`
+  list-style: none;
+  margin: 0;
+  margin-top: 15px;
+  padding: 0;
 `;
 
 export const ListItem = styled.li`
@@ -27,6 +31,7 @@ export const ListItem = styled.li`
   border-bottom: 5px groove #73dbeb;
   padding: 10px 0;
 
+  
 `;
 
 export const DeleteBtn = styled.button`
@@ -124,8 +129,8 @@ export const SortBtn = styled.button`
 export const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 12px;
 `;
+
 export const Message = styled.p`
   font-size: 30px;
   font-weight: 400;
