@@ -8,7 +8,7 @@ export const Title = styled.h2`
   margin-bottom: 10px;
 `;
 export const ContactsWrapper = styled.div`
-  min-width: 400px;
+  max-width: 400px;
   margin-bottom: 35px;
   box-shadow: 1px 7px 14px 0px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -128,7 +128,9 @@ export const SortBtn = styled.button`
 
 export const BtnWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 10px;
 `;
 
 export const Message = styled.p`
