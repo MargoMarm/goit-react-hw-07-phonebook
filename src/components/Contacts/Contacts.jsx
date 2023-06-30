@@ -29,6 +29,7 @@ import {
   TbSortDescendingLetters,
   TbSortAscending2,
   TbSortDescending2,
+  TbUserHeart,
 } from 'react-icons/tb';
 import { PiHeartFill, PiHeartBold } from 'react-icons/pi';
 
@@ -65,7 +66,7 @@ const Contacts = () => {
             )}
           </SortBtn>
           <SortBtn onClick={() => dispatch(toggleShowFavourites())}>
-            {textToShow}
+            {textToShow} <TbUserHeart size="20" />
           </SortBtn>
         </BtnWrapper>
         {contacts.length > 0 ? (
@@ -77,12 +78,6 @@ const Contacts = () => {
                   <BtnWrapper>
                     <DeleteBtn
                       type="button"
-                      onClick={() => dispatch(deleteContact(id))}
-                    >
-                      <RiDeleteBin2Line size="20" />
-                    </DeleteBtn>
-                    <DeleteBtn
-                      type="button"
                       onClick={() =>
                         dispatch(toggleIsFavourite({ id, isFavourite }))
                       }
@@ -92,6 +87,12 @@ const Contacts = () => {
                       ) : (
                         <PiHeartBold size="20" />
                       )}
+                    </DeleteBtn>
+                    <DeleteBtn
+                      type="button"
+                      onClick={() => dispatch(deleteContact(id))}
+                    >
+                      <RiDeleteBin2Line size="20" />
                     </DeleteBtn>
                   </BtnWrapper>
                 </ListItem>

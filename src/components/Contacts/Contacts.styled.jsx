@@ -93,7 +93,7 @@ export const SortBtn = styled.button`
   transition: all 0.3s ease 0s;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   outline: none;
   position: relative;
   background: #0fc1dd;
